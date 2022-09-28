@@ -1,0 +1,105 @@
+<!-- eslint-disable @angular-eslint/template/eqeqeq -->
+<header>
+  <ion-toolbar class="d-flex-center">
+    <div class="titlebar">
+      <ion-icon class="ionicon fs-26" name="star"></ion-icon>
+      <p class="fs-20 text">Favourite</p>
+      <button class="btn2" (click)="toMorePage()">
+        <ion-icon class="backbutton fs-26" name="arrow-back-outline"></ion-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+</header>
+
+<ion-content>
+  <div class="container" *ngIf="favlist == 0">
+    <ion-text color="dark">
+      <h1>No Favourite</h1>
+    </ion-text>
+  </div>
+
+  <ion-slides [options]="slideOpts" pager="true" *ngIf="favlist !== 0">
+    <ion-slide *ngFor="let item of favlist; index as i">
+      <ion-card style="border: solid 2px; color: #383e56">
+        <ion-item lines="none">
+          <div slot="start">
+            <img class="avatar" src="{{item.photo}}" height="100" />
+          </div>
+
+          <ion-label class="ion-text-wrap ion-padding-top">
+            <ion-card-subtitle class="fw-boldtxt fs-18 ion-text-wrap text-black"
+              >{{item.name}}</ion-card-subtitle
+            >
+            <ion-card-title class="fs-14 ion-text-wrap fw-300"
+              >{{item.full_address}}</ion-card-title
+            >
+          </ion-label>
+          <ion-note slot="end" color="dark" class="ion-margin-top"
+            >{{item.distance}}</ion-note
+          >
+        </ion-item>
+
+        <ion-card color="medim" class="mt-10">
+          <ion-list class="ion-margin-start">
+            <ion-item lines="none" color="medium">
+              <ion-label color="dark" class="fw-boldtxt ion-text-wrap">
+                <ion-row>
+                  <ion-col size="7">Unleaded 95</ion-col>
+                  <ion-col size="5" *ngIf="item.price">€{{item.price}}</ion-col>
+                  <ion-col size="5" *ngIf="!item.price">€ ---</ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="7"> Diesel </ion-col>
+                  <ion-col size="5" *ngIf="item.d_price"
+                    >€{{item.d_price}}</ion-col
+                  >
+                  <ion-col size="5" *ngIf="!item.d_price">€ ---</ion-col>
+                </ion-row>
+              </ion-label>
+              <ion-buttons slot="end">
+                <ion-button (click)="removeFavorite(item,i)">
+                  <ion-icon
+                    color="dark"
+                    [name]="item.is_favorite === 1  ? 'star' : 'star-outline'"
+                  >
+                  </ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+
+        <ion-button
+          expand="block"
+          class="ion-padding mt-20 text-black"
+          color="danger"
+          (click)="actionSheet(item)"
+          >Report Price
+        </ion-button>
+
+        <div class="ion-margin-top">
+          <div
+            *ngFor="let item of datalist"
+            style="display: inline-block; width: 20%"
+          >
+            <ion-item lines="none" class="ml-14" style="padding: 1px">
+              <ion-icon
+                class="rounded-corner"
+                [ios]="item.icon + '-outline'"
+                [md]="item.icon + '-sharp'"
+              ></ion-icon>
+            </ion-item>
+          </div>
+        </div>
+
+        <div>
+          <p></p>
+        </div>
+
+        <!-- <div class="text-center ion-padding-top">
+          <ion-label class="ion-margin">OPENING HOURS:24 HOURS</ion-label>
+        </div> -->
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

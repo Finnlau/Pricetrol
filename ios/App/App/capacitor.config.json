@@ -1,0 +1,6 @@
+{
+	"appId": "finn.app.pricetrol",
+	"appName": "pricetrol",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

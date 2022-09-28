@@ -1,0 +1,40 @@
+<ion-content>
+  <form [formGroup]="reportform" (ngSubmit)="priceUpdate()" novalidate>
+    <ion-item class="ion-padding-top" lines="none">
+      <ion-text
+        class="fw-boldtxt fs-22"
+        style="text-align: center; margin: 0 auto"
+        >PRICE UPDATE</ion-text
+      >
+    </ion-item>
+
+    <ion-card class="mt-7" color="medium">
+      <ion-list class="ion-margin-start">
+        <ion-item lines="none" color="medium">
+          <ion-label color="dark" class="fw-boldtxt fs-16"
+            >Unleaded 95 :</ion-label
+          ><br />
+          <ion-input type="number" formControlName="petrolPrice"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" color="medium">
+          <ion-label color="dark" class="fw-boldtxt fs-16">Diesel :</ion-label>
+          <ion-input
+            type="number"
+            class="setinput"
+            formControlName="disalPrice"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-button
+      type="submit"
+      color="danger"
+      expand="block"
+      class="ion-padding mt-30 fw-boldtxt text-black"
+    >
+      PRICE UPDATE
+    </ion-button>
+  </form>
+</ion-content>

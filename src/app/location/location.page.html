@@ -1,0 +1,96 @@
+<div class="image" (click)="isListView = !isListView">
+  <img src="assets/images/list.png" [hidden]="isListView" />
+  <button class="btn1" [hidden]="!isListView">
+    <ion-icon name="location"></ion-icon>
+  </button>
+</div>
+
+<ion-content class="modal-card">
+  <div id="mapElement" class="h-100 w-100" [hidden]="isListView"></div>
+
+  <ion-card
+    *ngFor="let item of stations;let i = index"
+    style="border: ridge"
+    [hidden]="!isListView"
+  >
+    <ion-list>
+      <ion-item lines="none">
+        <div slot="start">
+          <img class="avatar" *ngIf="item.photo" src="{{item.photo}}" />
+          <img
+            class="avatar"
+            *ngIf="!item.photo"
+            src="assets/images/logo.png"
+          />
+        </div>
+
+        <ion-label class="ion-text-wrap pt-3">
+          <ion-text class="fw-boldtxt fs-18 line-height ion-text-wrap"
+            >{{item.name}}</ion-text
+          >
+          <ion-row>
+            <ion-text class="fs-3 line-height ion-text-wrap pt-1">
+              <p>{{item.full_address}}</p>
+            </ion-text>
+            <ion-col size="3">
+              <p class="fw-boldtxt text-black ion-text-end">
+                {{item.distance}}
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-card color="medim" class="mt-1">
+      <ion-list class="ion-margin-start">
+        <ion-item lines="none" color="medium">
+          <ion-label color="dark" class="fw-boldtxt ion-text-wrap">
+            <ion-row>
+              <ion-col size="7">Unleaded 95</ion-col>
+              <ion-col size="5" *ngIf="item.price">€{{item.price}}</ion-col>
+              <ion-col size="5" *ngIf="!item.price">€ ---</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="7"> Diesel </ion-col>
+              <ion-col size="5" *ngIf="item.d_price">€{{item.d_price}}</ion-col>
+              <ion-col size="5" *ngIf="!item.d_price">€ ---</ion-col>
+            </ion-row>
+          </ion-label>
+
+          <ion-buttons slot="end">
+            <ion-button (click)="addtofav(item)">
+              <ion-icon
+                icon="only"
+                color="dark"
+                [name]="item.is_favorite === 1  ? 'star' : 'star-outline'"
+              >
+              </ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-card>
+</ion-content>
+
+<footer>
+  <ion-toolbar>
+    <div class="searchbar">
+      <form class="search d-flex-center w-100">
+        <ion-icon class="search-icon" name="search-outline"></ion-icon>
+        <ion-input
+          type="text"
+          placeholder="Search Station"
+          debounce="1000"
+          (ionChange)="onsearch($event)"
+        >
+        </ion-input>
+        <ion-buttons>
+          <ion-button class="btn2" [routerLink]="['/more']">
+            <ion-icon class="more-icon" name="ellipsis-horizontal"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </form>
+    </div>
+  </ion-toolbar>
+</footer>

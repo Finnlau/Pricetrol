@@ -1,0 +1,7 @@
+{
+  "name": "pricetrol",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

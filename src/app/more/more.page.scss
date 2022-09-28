@@ -1,0 +1,93 @@
+ion-header {
+  background: #383e56;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 200px;
+  width: 100%;
+  border-bottom: 10px solid #f69e7b;
+  //position
+  -webkit-position: sticky;
+  position: sticky;
+  display: flex;
+  position: flex;
+  align-items: center;
+}
+
+img {
+  width: 65%;
+  height: 65%;
+  left: 55px;
+  margin-top: 25px;
+
+  //position
+  -webkit-position: sticky;
+  position: sticky;
+  display: flex;
+  position: flex;
+}
+
+.btn {
+  margin-top: 40px;
+}
+
+button {
+  width: 85%;
+  height: 72px;
+  border-radius: 7px;
+  background-color: #c2c3c8;
+  border: 2px solid #383e56;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  color: black;
+  //position
+  -webkit-position: sticky;
+  position: sticky;
+  display: flex;
+  position: flex;
+  align-items: center;
+  margin: 13px auto;
+}
+
+.btn2 {
+  margin-bottom: 30px;
+}
+
+.icon {
+  font-size: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
+}
+
+p {
+  text-align: left;
+  font-size: 20px;
+  font-family: "Dosis", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 900;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+a {
+  font-size: 10px;
+  font-weight: 200;
+  margin-top: 21px;
+  position: absolute;
+  margin-left: 52px;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.25);
+}
+
+ion-toolbar {
+  --background: #383e56;
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  height: 52px;
+  width: 150%;
+  margin-left: -10px;
+  border-bottom: 7px solid #f69e7b;
+  //position
+  -webkit-position: sticky;
+  position: sticky;
+  display: flex;
+  position: flex;
+  align-items: center;
+  //margin: 13px auto;
+}

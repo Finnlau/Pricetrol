@@ -1,0 +1,36 @@
+ion-toolbar {
+  --background: #383e56;
+  height: 102px;
+}
+
+header ion-toolbar:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titlebar {
+  width: 95%;
+  height: 42px;
+  background: #c2c3c8;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+  border-radius: 90px;
+  -webkit-position: sticky;
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+  padding: 3px 3px;
+  margin: auto;
+  margin-top: 35px;
+}
+
+.ionicon {
+  font-size: 27px;
+  position: absolute;
+  left: 15px;
+}
+
+p {
+  margin-left: 3px;
+  top: 6px;
+}

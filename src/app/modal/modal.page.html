@@ -1,0 +1,92 @@
+<ion-content class="bgcolor ion-padding-top">
+  <ion-list lines="none">
+    <ion-item detail="true">
+      <div slot="start">
+        <img class="avatar" *ngIf="stations.photo" [src]="stations.photo" />
+        <img
+          class="avatar"
+          *ngIf="!stations.photo"
+          src="assets/icon/marker.png"
+        />
+      </div>
+
+      <ion-label class="ion-text-wrap ion-padding-top">
+        <ion-text class="fw-boldtxt fs-18 line-height ion-text-wrap"
+          >{{stations.name}}</ion-text
+        >
+        <ion-row>
+          <ion-text class="fs-14 line-height ion-text-wrap pt-1">
+            <p class="text-black">{{stations.full_address}}</p>
+          </ion-text>
+
+          <ion-col size="3">
+            <p class="fw-boldtxt text-black ion-text-end">
+              {{stations.distance}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-card color="medim" class="mt-1">
+    <ion-list class="ion-margin-start">
+      <ion-item lines="none" color="medium">
+        <ion-label color="dark" class="fw-boldtxt ion-text-wrap">
+          <ion-row>
+            <ion-col size="7">Unleaded 95</ion-col>
+            <ion-col size="5" *ngIf="stations.price"
+              >€{{stations.price}}</ion-col
+            >
+            <ion-col size="5" *ngIf="!stations.price">€ --- </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="7"> Diesel </ion-col>
+            <ion-col size="5" *ngIf="stations.d_price"
+              >€{{stations.d_price}}</ion-col
+            >
+            <ion-col size="5" *ngIf="!stations.d_price">€ ---</ion-col>
+          </ion-row>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="addTofavourite(stations)">
+            <ion-icon
+              color="dark"
+              [name]="stations.is_favorite === 1 ? 'star' : 'star-outline'"
+            >
+            </ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-button
+    expand="block"
+    class="ion-padding mt-20 fw-boldtxt"
+    color="danger"
+    (click)="reportPriceModalopen()"
+    >Report Price
+  </ion-button>
+
+  <div class="ion-margin-top">
+    <div
+      *ngFor="let item of datalist"
+      style="display: inline-block; width: 19%"
+    >
+      <ion-list mt-30>
+        <ion-item lines="none" class="ml-14" style="padding: 1px">
+          <ion-icon
+            class="rounded-corner"
+            [ios]="item.icon + '-outline'"
+            [md]="item.icon + '-sharp'"
+          ></ion-icon>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <!-- <div class="opening_hours">
+    <ion-label class="ion-margin">{{stations.working_hours}}</ion-label>
+  </div> -->
+</ion-content>

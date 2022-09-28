@@ -1,0 +1,30 @@
+//ion-list{
+//--ion-item-background: transparent;
+//}
+
+.avatar {
+  position: relative;
+  width: 45px;
+  height: 55px;
+  left: 5px;
+  top: 10px;
+  border-radius: 4px;
+}
+
+.opening_hours {
+  align-content: center;
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+.rounded-corner {
+  font-size: 20%;
+  border-radius: 50%;
+  //background: rgba(56, 62, 86, 0.8);
+  background-color: rgba(56, 62, 86, 0.8);
+  border: 7px solid rgba(56, 62, 86, 0.8);
+  -webkit-background-clip: padding-box;
+  height: 30px;
+  width: 35px;
+}
